@@ -5,7 +5,7 @@ const { getSnoballs,
 
 router.get('/', getSnoballs)
 
-// router.post('/', setSnoballs)
+router.post('/', setSnoballs)
 
 router.put('/:id', (req, res) => {
     res.json({ message: `Update goal ${req.params.id}` })
