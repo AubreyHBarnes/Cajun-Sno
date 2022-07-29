@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 
-import CustomCard from '../components/CustomCardEx';
+import CategoryCard from '../components/CategoryCard';
 
 const IndexPg = () => {
   
@@ -17,11 +17,11 @@ const IndexPg = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetch('/snoballs')
+    fetch('/categories')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setData(data)
+        console.log(data[0])
+        setData(data[0].name)
         setLoading(false)
       })
   }, [])
@@ -34,8 +34,12 @@ const IndexPg = () => {
     <>
 
       <Container>
-        <p>{data[0].flavor}</p>
-        <CustomCard />  
+        {
+          data.map(singleCategory => (
+            <CategoryCard categoryName={singleCategory} />  
+          ))
+        }
+        
       </Container>
     </>
   );

@@ -15,13 +15,14 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/snoballs', require('./routes/snoballRoutes'))
 app.use('/api/orders', require('./routes/orderRoutes'))
+app.use('/api/categories', require('./routes/categoryRoutes'))
 
 app.use(errorHandler)
 
 cloudinary.config({ 
-    cloud_name: 'dvdpi6o9g', 
-    api_key: '591448994383299', 
-    api_secret: 'CXi40gQYJNduhk78Cbdo9vkC-Ng' 
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET
   });
 
 app.listen(port, () => {

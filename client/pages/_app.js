@@ -1,6 +1,6 @@
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme, mode } from '@chakra-ui/react'
 
-const Card = {
+const CategoryCard = {
   // The styles all Cards have in common
   baseStyle: {
     display: 'flex',
@@ -30,8 +30,15 @@ const Card = {
 
 const theme = extendTheme({
   components: {
-    Card,
+    CategoryCard,
   },
+  styles: {
+    global: {
+      'html, body': {
+        backgroundColor: '#F8EDED'
+      }
+    }
+  }
 })
 
 export default function App({ Component, pageProps }) {

@@ -6,7 +6,7 @@
 import axios from "axios"
 
 
-  const API = "/snoballs"
+  const API = "/categories"
 
 
   const register = async () => {
